@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전자공학과 웹 푸시</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="header">
+      <p>영남대 전자공학 알리미</p>
+    </div>
+    <div>
+      <table class="Calendar">
+          <thead>
+              <tr>
+                  <td id="prev" style="cursor:pointer;">&#60;</td>
+                  <td colspan="5">
+                      <span id="calYear"></span>년
+                      <span id="calMonth"></span>월
+                  </td>
+                  <td id="next" style="cursor:pointer;">&#62;</td>
+              </tr>
+              <tr>
+                  <td>일</td>
+                  <td>월</td>
+                  <td>화</td>
+                  <td>수</td>
+                  <td>목</td>
+                  <td>금</td>
+                  <td>토</td>
+              </tr>
+          </thead>
+
+          <tbody>
+          </tbody>
+      </table>
+    </div>
+    <div class="schedules"></div>
+    <div class="web-push">
+      <p id="subscribe">학과 공지 알람설정하기</p>
+      <button id="alertBtn"><i class="fa-regular fa-bell"></i></button>
+    </div>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/calender.js"></script>
+</body>
+</html>

@@ -1,17 +1,25 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
+require("dotenv").config();
+const DBConnection = require('./server/db/db-connection');
+const router = require('./server/routers/router');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
-const service = require('./src/alert-service');
+DBConnection();
 
-app.use(express.static(path.join(__dirname, 'public')));
+const service = require('./server/utils/alert-service');
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cors({ origin: "*" }));
 
-service();
+app.use(router);
+
+// service();
 
 app.listen(port, () => {
     console.log(`server is listening at localhost:${port}`);
