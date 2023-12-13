@@ -100,9 +100,7 @@ function subscribeUser() {
     console.log('User is subscribed.');
     // 생성된 구독 데이터를 다루기 위한 함수
     await updateSubscriptionOnServer(subscription);
-
     isSubscribed = true;
-
     updateBtn();
   })
   .catch(function(error) {
@@ -113,24 +111,36 @@ function subscribeUser() {
 
 // 서버가 구독정보 받는 함수
 async function updateSubscriptionOnServer(subscription) {
-  // TODO: Send subscription to application server
-  if (subscription) {
-    await fetch('http://localhost:3000/new', {
-      method: 'POST',
-      body: JSON.stringify(subscription),
-      headers: {
-        "content-type": "application/json"
-    }}).catch(e => console.error(e));
-  } else {
-    // dd
+  try {
+    if (subscription) {
+      await fetch('http://localhost:3000/user', {
+        method: 'POST',
+        body: JSON.stringify(subscription),
+        headers: {
+          "content-type": "application/json"
+      }});
+    } 
+  } catch (error) {
+    console.error('Error updating subscription on server: ', error);
+    // 에러 처리 로직 추가
   }
 }
 
 function unsubscribeUser() {
   swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
+  .then(async function(subscription) {
     if (subscription) {
-      return subscription.unsubscribe();
+      try{
+        await fetch('http://localhost:3000/user', {
+        method: 'DELETE',
+        body: JSON.stringify(subscription),
+        headers: {
+          "content-type": "application/json"
+        }});
+        await subscription.unsubscribe();
+      } catch(e) {
+        console.error(e)
+      }
     }
   })
   .catch(function(error) {

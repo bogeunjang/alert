@@ -36,11 +36,11 @@ self.addEventListener('push', function(event) {
 
 // 푸시 클릭시 링크
 self.addEventListener('notificationclick', function(event) {
-console.log('[Service Worker] Notification click received.');
+    console.log('[Service Worker] Notification click received.');
 
-event.notification.close();
+    event.notification.close();
 
-event.waitUntil(
-    clients.openWindow('https://developers.google.com/web')
-);
+    event.waitUntil(
+        clients.openWindow('https://www.yu.ac.kr/electronics/community/notice.do')
+    );
 });
