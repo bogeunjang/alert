@@ -2,6 +2,7 @@ const applicationServerPublicKey = 'BECDD6UBTO7vZcFrNU2BpLTeNgF8a14_j5RcgDM0rfuI
 
 const pushButton = document.querySelector('#alertBtn');
 const subscribe = document.querySelector('#subscribe');
+const alertOption = document.querySelector('#alert-option');
 
 let isSubscribed = false;
 let swRegistration = null;
@@ -45,16 +46,20 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 // 알람기능에 따라 버튼상태 설정
 function updateBtn() {
   if (Notification.permission === 'denied') {
-    subscribe.textContent = '알람 기능을 허용해 주세요';
+    alertOption.classList.remove('hidden')
+    alertOption.textContent = '알람 기능을 허용해 주세요';
     pushButton.disabled = true;
     updateSubscriptionOnServer(null);
     return;
+  }else if(alertOption.classList.contains('hidden')) {
+  }else{
+    alertOption.classList.add('hidden');
   }
 
   if (isSubscribed) {
-    subscribe.textContent = '푸시 기능 구독 취소하기';
+    subscribe.textContent = '알람 설정';
   } else {
-    subscribe.textContent = '푸시 기능 구독';
+    subscribe.textContent = '알람 취소';
   }
 
   pushButton.disabled = false;

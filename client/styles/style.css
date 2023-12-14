@@ -11,6 +11,21 @@ body {
     justify-content: center;
 }
 
+.tab {
+    width: 100%;
+    height: 20px;
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(172, 172, 172);
+}
+
 .container {
     width: 400px;
     height: 100%;
@@ -72,22 +87,18 @@ button {
     text-align: center;
 }
 
-.noti {
-    border-bottom: 1px solid #ccc;
-}
-
-.noti td {
-    white-space: nowrap;
-}
-
 .noti-table {
     font-size: 13px;
     width: 100%;
-    border-top: 1px solid #ccc;
+    margin-top: 0;
+}
+.noti-table tbody tr {
+    height: 30px;
 }
 
 .noti-table tbody td {
     border-bottom: 1px solid #ccc;
+    white-space: nowrap;
     text-align: center;
 }
 
@@ -109,7 +120,28 @@ button {
     text-overflow: ellipsis;
     overflow: hidden;
     display: block;
+    text-align: left;
+    padding-bottom: 3px;
 }
 .noti-date {
     width: 80px;
+    color: #979797;
+}
+
+#alertBtn {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#alertBtn p {
+    margin: 0 5px; /* 간격 조절 */
+}
+
+.hidden {
+    display: none; /* 숨기기 */
 }

@@ -12,7 +12,7 @@
     <div class="header">
       <p>영남대 전자공학 알리미</p>
     </div>
-    <p>학과공지사항</p>
+    <p class="tab">학과공지사항</p>
     <table class="noti-table">
         <tbody>
             <tr class="noti">
@@ -30,7 +30,7 @@
                         공지
                     </div>
                 </td>
-                <td><a class="noti-title">2023학년도 2학기 기말시험 실시 안내</a></td>
+                <td><a class="noti-title">★★[~12/19] [졸업]2024-2월 졸업예정자 졸업논문 제출 안내 ★★</a></td>
                 <td class="noti-date">2023.11.11</td>
             </tr>
             <tr class="noti">
@@ -39,7 +39,7 @@
                         공지
                     </div>
                 </td>
-                <td><a class="noti-title">2023학년도 2학기 기말시험 실시 안내</a></td>
+                <td><a class="noti-title">★★ [2024-1 기준 장학] 학과 성적우수장학금 - 어학성적 입력 안내 및 학년별 기준 어학성적 안내 ★★</a></td>
                 <td class="noti-date">2023.11.11</td>
             </tr>
             <tr class="noti">
@@ -48,11 +48,19 @@
                         공지
                     </div>
                 </td>
-                <td><a class="noti-title">2023학년도 2학기 기말시험 실시 안내</a></td>
+                <td><a class="noti-title">★★[~10/11] [졸업]2024-2월 졸업예정자 중 종합설계 미수강자 졸업논문작성계획서 제출 안내 ★★</a></td>
                 <td class="noti-date">2023.11.11</td>
             </tr>
         </tbody>
     </table>
+    <div class="web-push">
+      <button id="alertBtn">
+        <p id="subscribe">알람설정</p>
+        <p><i class="fa-regular fa-bell"></i></p>
+      </button>
+    </div>
+    <p id="alert-option" class="hidden">알람 기능을 허용해 주세요</p>
+    <p class="tab">학사 일정</p>
     <div>
       <table class="Calendar">
           <thead>
@@ -80,10 +88,6 @@
       </table>
     </div>
     <div class="schedules"></div>
-    <div class="web-push">
-      <p id="subscribe">학과 공지 알람설정하기</p>
-      <button id="alertBtn"><i class="fa-regular fa-bell"></i></button>
-    </div>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/calender.js"></script>
 </body>
