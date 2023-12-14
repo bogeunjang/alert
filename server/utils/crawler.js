@@ -15,7 +15,9 @@ module.exports = async () => {
     const noti_topbox = [];
     let noti = "";
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const page = await browser.newPage();
     await page.goto(`https://www.yu.ac.kr/electronics/community/notice.do`);
     const content = await page.content();
