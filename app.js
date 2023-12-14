@@ -21,6 +21,12 @@ app.use(router);
 
 service();
 
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500).json({
+      message: `${err.message}`,
+    });
+});
+
 app.listen(port, () => {
     console.log(`server is listening at localhost:${port}`);
 });
