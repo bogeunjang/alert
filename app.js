@@ -19,7 +19,7 @@ app.use(cors({ origin: "*" }));
 
 app.use(router);
 
-// service();
+service();
 
 app.listen(port, () => {
     console.log(`server is listening at localhost:${port}`);
