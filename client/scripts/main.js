@@ -113,7 +113,7 @@ function subscribeUser() {
 async function updateSubscriptionOnServer(subscription) {
   try {
     if (subscription) {
-      await fetch('http://localhost:3000/user', {
+      await fetch('https://yu-notice.com/user', {
         method: 'POST',
         body: JSON.stringify(subscription),
         headers: {
@@ -131,7 +131,7 @@ function unsubscribeUser() {
   .then(async function(subscription) {
     if (subscription) {
       try{
-        await fetch('http://localhost:3000/user', {
+        await fetch('https://yu-notice.com/user', {
         method: 'DELETE',
         body: JSON.stringify(subscription),
         headers: {
