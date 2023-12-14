@@ -3,6 +3,7 @@ const router = express.Router();
 require("dotenv").config();
 const { User } = require('../db/schema');
 const webpush = require('web-push');
+const asyncHandler = require('../utils/async-handler');
 
 webpush.setGCMAPIKey(process.env.FCM_KEY);
 webpush.setVapidDetails(
@@ -11,11 +12,11 @@ webpush.setVapidDetails(
   process.env.PRIVATE_KEY
 );
 
-router.get('/', (req, res) => {
+router.get('/', asyncHandler( async (req, res) => {
     res.sendFile('../../client/index.html');
-});
+}));
 
-router.post('/user', async (req, res) => {
+router.post('/user', asyncHandler( async (req, res) => {
     const { endpoint, expirationTime, keys } = req.body;
 
     await User.create({
@@ -32,9 +33,9 @@ router.post('/user', async (req, res) => {
     res.status(201).json({
         msg: "구독 완료"
     });
-})
+}));
 
-router.post('/noti', async (req, res) => {
+router.post('/noti', asyncHandler( async (req, res) => {
     const { title, text } = req.body;
 
     const sub_list = await User.find({});
@@ -54,9 +55,9 @@ router.post('/noti', async (req, res) => {
             msg: "푸시 보냄"
         });
     }
-})
+}))
 
-router.delete('/user', async (req, res) => {
+router.delete('/user', asyncHandler( async (req, res) => {
     const { endpoint } = req.body;
 
     await User.findOneAndDelete({endpoint})
@@ -64,6 +65,6 @@ router.delete('/user', async (req, res) => {
     res.status(200).json({
         msg: "유저 삭제됨"
     });
-})
+}));
 
 module.exports = router;
