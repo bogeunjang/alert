@@ -46,6 +46,44 @@ function buildCalendar(firstDate) {
             nowRow = tbody.insertRow();
         }
     }
+
+    // 학사일정용 날짜
+    let month = lastDate.getMonth()+1;
+    if(month < 10){
+        month = "0"+month;
+    }else{
+        month = month+"";
+    }
+    let fullMonth = lastDate.getFullYear() + month;
+    
+    const container = document.getElementById('monthScheduleContainer');
+    let monthScheduleList = scheduleList[fullMonth] || null;
+
+    if(monthScheduleList){
+        container.classList.remove('hidden');
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+        for(obj of monthScheduleList){
+            const date = obj.split('#')[0];
+            const content = obj.split('#')[1];
+            const scheduleChild = document.createElement('div');
+            scheduleChild.classList.add('scheduleChild');
+
+            const dateElement = document.createElement('p');
+            dateElement.textContent = date;
+
+            const contentElement = document.createElement('p');
+            contentElement.textContent = content;
+
+            scheduleChild.appendChild(dateElement);
+            scheduleChild.appendChild(contentElement);
+            container.appendChild(scheduleChild);
+        }
+    }else{
+        container.classList.add('hidden');
+    }
+
 }
 
 // 이전달 버튼 클릭

@@ -145,3 +145,25 @@ button {
 .hidden {
     display: none; /* 숨기기 */
 }
+
+.scheduleChild {
+    display: flex;
+    width: 380px;
+    align-items: center;
+}
+
+.scheduleChild > p {
+    width: 100%;
+    align-items: center;
+    text-align: left;
+}
+
+.scheduleChild > p:nth-child(1) {
+    width: 120px;
+}
+.scheduleChild > p:nth-child(2) {
+    margin-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
