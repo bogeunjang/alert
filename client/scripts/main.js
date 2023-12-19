@@ -57,9 +57,9 @@ function updateBtn() {
   }
 
   if (isSubscribed) {
-    subscribe.textContent = '알람 설정';
-  } else {
     subscribe.textContent = '알람 취소';
+  } else {
+    subscribe.textContent = '알람 설정';
   }
 
   pushButton.disabled = false;
