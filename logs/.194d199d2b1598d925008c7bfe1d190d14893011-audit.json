@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\Cloky\\Desktop\\project\\school\\project\\logs\\.194d199d2b1598d925008c7bfe1d190d14893011-audit.json",
+    "files": [
+        {
+            "date": 1702968833338,
+            "name": "C:\\Users\\Cloky\\Desktop\\project\\school\\project\\logs\\2023-12-19.log",
+            "hash": "86adc3ba99b1d63199d433e200d3330a4e56e30911875eb362e17d9814aeb502"
+        }
+    ],
+    "hashType": "sha256"
+}
