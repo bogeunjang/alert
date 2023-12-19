@@ -143,6 +143,13 @@ function unsubscribeUser() {
           "content-type": "application/json"
         }});
         await subscription.unsubscribe();
+
+        updateSubscriptionOnServer(null);
+
+        console.log('User is unsubscribed.');
+        isSubscribed = false;
+
+        updateBtn();
       } catch(e) {
         console.error(e)
       }
@@ -151,12 +158,4 @@ function unsubscribeUser() {
   .catch(function(error) {
     console.log('Error unsubscribing', error);
   })
-  .then(function() {
-    updateSubscriptionOnServer(null);
-
-    console.log('User is unsubscribed.');
-    isSubscribed = false;
-
-    updateBtn();
-  });
 }
