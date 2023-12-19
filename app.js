@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const logger = require('./winston/logger');
 require("dotenv").config();
 const DBConnection = require('./server/db/db-connection');
 const router = require('./server/routers/router');
@@ -22,6 +23,7 @@ app.use(router);
 service();
 
 app.use(function (err, req, res, next) {
+    logger.error(err.message);
     res.status(err.status || 500).json({
       message: `${err.message}`,
     });
